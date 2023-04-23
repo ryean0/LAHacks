@@ -1,7 +1,16 @@
 import { useRouter } from 'next/router';
 
-
 export default function TranscribePage(props) {
+  const router = useRouter();
+  const summarizeHandler = (e) => {
+    e.preventDefault();
+    if (props.transcript != null) {
+      router.push({
+        pathname: 'summarize',
+        query: { text: props.transcript }
+      })
+    }
+  } 
   return (
     <div>
       <h1>{props.message}</h1>
@@ -13,6 +22,15 @@ export default function TranscribePage(props) {
       <h2>
         {props.transcript}
       </h2>
+      <h1>
+        Summarize Text
+      </h1>
+      <p>
+        Here you have the option to summarize content.
+      </p>
+      <button onClick={summarizeHandler}>
+        Summarize
+      </button>
     </div>
   );
 };

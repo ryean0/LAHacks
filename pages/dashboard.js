@@ -30,8 +30,6 @@ export default function Dashboard() {
         <button onClick={transcribeHandler}>
             Transcribe
         </button>
-        <h1>Summarize Text</h1>
-        <input type="file"/>
       </div>
     );
   };
